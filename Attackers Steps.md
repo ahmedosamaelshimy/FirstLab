@@ -56,5 +56,10 @@
  <p>
  
  - `Plink` was used in conjunction with a batch script `FXS.bat` to establish an SSH connection with the threat actor’s server on port `443` instead of `22`.
-
-
+ - Proxied RDP Traffic: used SSH tunnel to RDP to the beachhead server.
+ 
+ #### 6. Data Exfiltration
+ - The Threat Actor Downloaded some Sensitive files like `postgres DB backup` of the ManageEngine SupportCenter Plus application using the web shell.
+   <p align='center'>
+   ![image](https://github.com/user-attachments/assets/18fdbcee-8378-4a20-8c98-03b10733e661)
+   </p>

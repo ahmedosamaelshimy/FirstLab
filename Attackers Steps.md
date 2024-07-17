@@ -61,5 +61,5 @@
  #### 6. Data Exfiltration
  - The Threat Actor Downloaded some Sensitive files like `postgres DB backup` of the ManageEngine SupportCenter Plus application using the web shell.
    <p align='center'>
-   ![image](https://github.com/user-attachments/assets/18fdbcee-8378-4a20-8c98-03b10733e661)
+   <img src=`https://thedfirreport.com/wp-content/uploads/2022/06/Untitled3.png` hieght='40%' width='40%'>
    </p>

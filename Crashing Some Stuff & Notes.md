@@ -15,7 +15,7 @@ System Information
         me
     Defender settings:
         HKLM\Software\Microsoft\Windows Defender\
-
+_______________________________________
 
 
 
@@ -24,6 +24,7 @@ System Information
 
 
 [LSASS](https://www.synacktiv.com/en/publications/windows-secrets-extraction-a-summary)
+
 Recovering LSASS memory is probably the most known technique to retrieve sensitive secrets. Indeed, this process is responsible for handling authentication on Windows and can contain the following elements:
 
 User / Machine hashes.

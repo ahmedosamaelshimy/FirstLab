@@ -15,3 +15,23 @@ System Information
         me
     Defender settings:
         HKLM\Software\Microsoft\Windows Defender\
+
+
+
+
+
+
+
+
+LSASS
+Recovering LSASS memory is probably the most known technique to retrieve sensitive secrets. Indeed, this process is responsible for handling authentication on Windows and can contain the following elements:
+
+User / Machine hashes.
+Cleartext credentials (if wdigest is enabled).
+Kerberos tickets (TGT and ST).
+DPAPI cached keys.
+As such, successfully recovering these elements is often the best way to elevate privileges from a first compromise to Domain Administrator in an Active Directory environment. As this process is highly sensitive, attackers and defenders are battling, antivirus are getting better and new techniques are regularly discovered to bypass them.
+
+Moreover, Microsoft has introduced different protections over the years to protect against these attacks such as RunAsPPL and Credential Guards.
+
+As this article is focused on the offensive side, let's talk about the different techniques one can use to retrieve LSASS secrets.

@@ -1,0 +1,17 @@
+
+
+
+PWF - Investigation #001
+System Information
+    Computername.
+        HKLM\System\CurrentControlSet\Control\Computername\
+    Windows Version:
+        NT\Currentversion\
+    Timezone:
+        HKLM\System\CurrentControlSet\Control\TimeZonelnformation\
+    Network Information:
+        ices\Tcpi p\Parameters\lnterfaces\{i nterface-name}
+    Shutdown time:
+        me
+    Defender settings:
+        HKLM\Software\Microsoft\Windows Defender\

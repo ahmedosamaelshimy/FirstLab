@@ -116,7 +116,7 @@ j. Download it
 
 <hr />
 
-### 3. now we have the dump, we will skip the process of fetching the passwords for now, Lets Go to the next step where the attacker starts tunneling RDP connections over SSH
+### 3. We have the LSASS dump, we will skip the process of fetching the passwords for now, Let's Go to the next step where the attacker starts tunneling RDP connections over SSH
 
 a. First, we will download `plink.exe` as `ekern.exe`
 ```

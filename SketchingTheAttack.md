@@ -157,6 +157,12 @@
 
    k. now It's RDP time
 
+   ![image](https://github.com/user-attachments/assets/0f083225-b204-4e26-ab6a-89b6193da53f)
+
+   ![image](https://github.com/user-attachments/assets/2f3579f5-3be2-40be-bad0-cba283211a7d)
+
+   it WORKED !!
+   ![image](https://github.com/user-attachments/assets/fbd3d1af-1541-41de-a2a3-23cb1f28a86c)
 
    
 

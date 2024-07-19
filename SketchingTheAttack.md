@@ -165,6 +165,12 @@
    ![image](https://github.com/user-attachments/assets/fbd3d1af-1541-41de-a2a3-23cb1f28a86c)
 
    
+### 4. Stealing Some Data
+   a. lets download postgres DB backup of the ManageEngine ServiceDesk Plus application
+
+
+
+
 
 ------
 

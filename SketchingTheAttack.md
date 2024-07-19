@@ -46,7 +46,8 @@ python3 exploit.py http://192.168.20.135:8080/ msiexec.exe
 
 ![image](https://github.com/user-attachments/assets/55a6b0e8-78cf-46d7-ae3f-91f68353e9b8)
 
-#### No Need for Privilege Escalation
+#### `whoami` ?
+> No Need for Privilege Escalation
 
 ![image](https://github.com/user-attachments/assets/78176ea2-9843-480b-984c-b65e5ce7de80)
 

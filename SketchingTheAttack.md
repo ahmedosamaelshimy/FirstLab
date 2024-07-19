@@ -175,4 +175,5 @@
    ![image](https://github.com/user-attachments/assets/4bf04d98-3165-41a8-8dea-4dbd01abac1d)
 
 ## Conclusion
-    We started exploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077) 
+   
+   We started exploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077) then a wbsh.jsp file were dropped and using it we gained a web shell and after little enummuration we started to dump LSASS after enabling WDigest to allow passwords to be stored as a plain text format, then we have downloaded ekern.exe which was a renamed version of Plink, and wrote a batch script to establish a reverse SSH connection to tunnel RDP connections over it. after that we stole some confedintial data like `backup_postgres_11303_fullbackup_07_19_2024_20_07_part_1.data` and `Employees.xls`.

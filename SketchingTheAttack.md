@@ -83,6 +83,7 @@
       
 
    e. download it
+   
    ![image](https://github.com/user-attachments/assets/6994c404-8d93-42f3-ae33-89e6cc34c703)
 
    f. after downloading the logctl.zip file, i'ts empty , which was weird and tried multiple ways and every time when i dump it, its empty so i had to use `procdump.exe`, i will be adding this to the lab for more fun
@@ -101,10 +102,10 @@
 
    ![image](https://github.com/user-attachments/assets/e3649426-ec9b-4fd8-a3e3-0a0ce7b1acd6)
 
-   k. now we have the dump, we will skip the process of fetching the passwords for now, Lets Go to the next step where the attacker start 
 
-   ![image](https://github.com/user-attachments/assets/130132a6-b547-40f9-8a3b-9aa7bc7b2f0f)
+### 3. now we have the dump, we will skip the process of fetching the passwords for now, Lets Go to the next step where the attacker start tunnelling RDP connections over SSH
 
+   a. 
 
    
 

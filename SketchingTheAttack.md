@@ -182,6 +182,7 @@ k. Now It's RDP time
 it WORKED !!
 ![image](https://github.com/user-attachments/assets/fbd3d1af-1541-41de-a2a3-23cb1f28a86c)
 
+<hr />
 
 ### 4. Stealing Some Data
 a. Download postgres DB backup of the ManageEngine ServiceDesk Plus application it's located at `C:\Program Files (x86)\ManageEngine\ServiceDesk\backup\backup_postgres_11303_fullbackup_07_19_2024_20_07\`
@@ -191,6 +192,8 @@ a. Download postgres DB backup of the ManageEngine ServiceDesk Plus application 
 b. there is a file named `Employees.xls` located on the Desktop let's see it 
 
 ![image](https://github.com/user-attachments/assets/4bf04d98-3165-41a8-8dea-4dbd01abac1d)
+
+<hr />
 
 ## Conclusion
 

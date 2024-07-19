@@ -1,4 +1,5 @@
 
+# Sketching an attack based on [Will the Real Msiexec Please Stand Up? Exploit Leads to Data Exfiltration](https://thedfirreport.com/2022/06/06/will-the-real-msiexec-please-stand-up-exploit-leads-to-data-exfiltration/) Report
 
 ## 1. Hands On Action: Exploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077)
 
@@ -49,6 +50,7 @@ python3 exploit.py http://192.168.20.135:8080/ msiexec.exe
 
 ![image](https://github.com/user-attachments/assets/78176ea2-9843-480b-984c-b65e5ce7de80)
 
+<hr />
 
 ### 2. Next step we are enabling wdigest then dumping LSASS then downloading it
 
@@ -107,6 +109,7 @@ j. Download it
 
 ![image](https://github.com/user-attachments/assets/e3649426-ec9b-4fd8-a3e3-0a0ce7b1acd6)
 
+<hr />
 
 ### 3. now we have the dump, we will skip the process of fetching the passwords for now, Lets Go to the next step where the attacker starts tunneling RDP connections over SSH
 
@@ -194,3 +197,6 @@ b. there is a file named `Employees.xls` located on the Desktop let's see it
 We started exploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077) then a wbsh.jsp file was dropped, and by using it we gained a web shell and after little enummuration we started to dump LSASS after enabling WDigest to allow passwords to be stored in plaintext format. 
 
 Then we have downloaded ekern.exe which was a renamed version of [Plink](https://the.earth.li/~sgtatham/putty/0.58/htmldoc/Chapter7.html), and wrote a batch script `FXS.bat` to establish a reverse SSH connection to tunnel RDP connections over it. After that we stole some confedintial data like `backup_postgres_11303_fullbackup_07_19_2024_20_07_part_1.data` and `Employees.xls`.
+
+> THIS WAS FUN !!
+

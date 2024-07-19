@@ -27,7 +27,7 @@ python3 exploit.py http://192.168.20.135:8080/ msiexec.exe
 
 ![image](https://github.com/user-attachments/assets/16c25295-6f5a-465d-96b4-da499027becb)
 
-#### So, I wrote a simple Python script that, when executed a `wbsh.jsp` is created a the `\custom\login` directory
+#### So, I wrote a simple Python script that, when executed a `wbsh.jsp` is written to `\custom\login` directory
 
 ![image](https://github.com/user-attachments/assets/a0525bc4-dc65-4c9b-9856-110ae5456b23)
 

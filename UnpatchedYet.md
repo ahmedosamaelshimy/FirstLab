@@ -222,3 +222,17 @@ ASN1, ANS2
 SSH-2.0-9.38 FlowSsh: Bitvise SSH Server (WinSSHD) 9.38
 SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ```
+> [!TIP]
+> How many handshakes?
+
+#### Q33: Over this SSH Connection the Attacker was able to RDP. Can you identify the timestamp of the first time ? (Y-M-D 24:00)
+
+```
+2024-07-20 14:02
+****-**-** **:**
+```
+> [!TIP]
+> RDP Clipboard Monitor
+
+<hr>
+

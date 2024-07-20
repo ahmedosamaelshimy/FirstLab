@@ -1,4 +1,9 @@
 # UnpatchedYet?
+#### Category:
+`Endpoint Forensics` `Network Forensics`
+
+#### Tags:
+`sysmon` `wireshark` `mimikatz` `T1003` `T1012` `T1572 ` `T1505.003` `T1190` `T1021.001` `T1112`
 
 #### Instructions:
 - Uncompress the lab (pass: cyberdefenders.org)

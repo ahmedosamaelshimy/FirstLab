@@ -112,10 +112,48 @@ LSASS
 comsvcs.dll
 ```
 
-#### Q15: The attack dumped it, and then how downloaded the dump can you tell the size of the file that he downloaded? (in bytes)
+#### Q15: The attacker dumped the process and wrote the dumo to a certain file, and then he downloaded it. can you tell the size of that file? (in bytes)
 ```
 00000
 *****
 ```
 
-#### Q15: 
+#### Q16: Did it Work? (yay, nay)
+```
+nay
+***
+```
+> [!TIP]
+> Based on the Size
+
+### Q17: The Attacker downloaded a file to the Victim's Machine can you tell from where did he download it? (<IP>:<PORT>)
+```
+192.168.1.2:9000
+```
+
+#### Q18: This file seems to be a calculator!!. hmm...? I think it's not a calculator. what is it? 
+```
+procdump.exe
+********.***
+```
+> [!TIP]
+> Invistigate the real filename
+
+#### Q19: Another file has been downloaded from the system. What Was its Size? (in bytes)
+```
+54998530
+********
+```
+#### Q20: What command did the cover his tracks?
+```
+
+```
+
+#### Q21: In the lab files you will see a bin file which has the Credintials and also a password of ZIP file (the second part of the lab). What is USERNAME:PASSWORD? (DON'T CHEAT)
+```
+Victim:victim123
+******:*********
+```
+
+#### Q22: 
+

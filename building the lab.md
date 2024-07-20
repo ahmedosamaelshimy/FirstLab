@@ -87,6 +87,8 @@ powershell.exe C:\Users\Victim\Documents\FXS.bat
 ![image](https://github.com/user-attachments/assets/ac46e920-278f-4505-a6c4-7b5a4b35cf29)
 
 
-#### g. Let's Start The RDP, when doing the RDP we will be Making 3 attemps (Success) 
+#### g. Let's Start The RDP, when doing the RDP we will be Making 3 attemps 
 
 ![image](https://github.com/user-attachments/assets/088dc184-72d4-4c3a-b5be-a32cf9abc9a4)
+
+> Now We Are Ready!! Let's Start The Lab...

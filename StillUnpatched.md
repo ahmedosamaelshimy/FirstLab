@@ -666,10 +666,19 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 #### Q33: Over this SSH Connection the Attacker was able to RDP. Can you identify the timestamp of the first time ? (Y-M-D 24:00)
 
 ```
-2024-07-20 14:02
 ****-**-** **:**
 ```
 > [!TIP]
 > RDP Clipboard Monitor
+- In the 2.evtx file search for the first `rdpclip.exe`
+- Which is responsible for managing the shared clipboard between the local computer and the remote desktop.
+- Executing it means there is an establishment of an RDP connection.
+![rdp](https://github.com/user-attachments/assets/542a68d8-109d-4a3c-81c4-7a77925c67cc)
+-
 
+##### - Answer: `2024-07-20 14:02`
+
+> This was my first lab ever, and I hope you liked it. Thank you <3
+
+<br>
 <hr>

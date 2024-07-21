@@ -110,7 +110,7 @@ The HR manager, faced a critical security breach when his laptop became the entr
 > [!TIP]
 > Based on the Size
 
-#### Q16: The Attacker downloaded a file to the Victim's Machine can you tell from where did he download it? (<IP_addr> :<port>)
+#### Q16: The Attacker downloaded a file to the Victim's Machine can you tell from where did he download it? (<IP_addr> :< port>)
 ```
 ***.***.*.*:****
 ```
@@ -434,7 +434,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 <br>
 
-#### Q16: The Attacker downloaded a file to the Victim's Machine can you tell from where did he download it? (<IP_addr>:<port>)
+#### Q16: The Attacker downloaded a file to the Victim's Machine can you tell from where did he download it? (<IP_addr>:< port>)
 ```
 ***.***.*.*:****
 ```

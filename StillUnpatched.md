@@ -166,7 +166,6 @@ The HR manager, faced a critical security breach when his laptop became the entr
 
 #### Q27: There is a .bat file was created. Where is it? (Absolute Path including the filename)
 ```
-C:\Users\Victim\Documents\FXS.bat
 *:\*****\******\*********\***.***
 ```
 

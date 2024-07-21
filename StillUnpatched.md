@@ -210,7 +210,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ![image](https://github.com/user-attachments/assets/bdd7e906-7f82-49f6-a7fd-df0870c169cd)
 
 
-- We Got 4 files [1.pcap, sysmon_log.evtx, logc2.bin, 2.zip]
+- We Got 4 files [1.pcap, sysmon_log.evtx, logctl.bin, 2.zip]
 
 - After Reading the Tags and The Scenario we can understand that there is a Software that have a vulnerability and this vulnerability have been exploited. Then the attacker gained dumped some credentials `T1003` also there is a webshell  `T1505.003` and RDP `T1021.001`.
 

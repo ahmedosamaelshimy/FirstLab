@@ -134,14 +134,14 @@ The HR manager, faced a critical security breach when his laptop became the entr
 ******:*********
 ```
 
-#### Q22: After a while the attacker started to search for a confidential data. can you tell what was the first directory he looked at?
+#### Q21: After a while the attacker started to search for a confidential data. can you tell what was the first directory he looked at?
 ```
 C:\Users\Victim\Pictures
 *:\*****\******\********
 
 ```
 
-#### Q23: What Did he try to steal? (filename)
+#### Q22: What Did he try to steal? (filename)
 ```
 Employees.xls
 *********.***
@@ -508,15 +508,19 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 <br>
 
-#### Q20: In the lab files you will see a bin file which has the OS Credintials and also a password of ZIP file (the second part of the lab). What is USERNAME:PASSWORD? (DON'T CHEAT)
+#### Q20: In the lab files you will see a logctl.bin file which has the OS Credintials and also a password of ZIP file (the second part of the lab). What is USERNAME:PASSWORD? (DON'T CHEAT)
 ```
 ******:*********
 ```
 - We Need to use [Mimikatz](https://github.com/ParrotSec/mimikatz) to get the Credentials
-![image](https://github.com/user-attachments/assets/b851d1ed-614f-4fa1-88e8-dc0362c96ee7)
-- open it, then `# sekurlsa::minidump logc2.bin` -> `sekurlsa::logonpasswords`
-- 
 
+![image](https://github.com/user-attachments/assets/d713d5b5-296f-43ea-821a-2e9bd0bf5cdf)
+
+- open it, then `# sekurlsa::minidump logctl.bin` -> `sekurlsa::logonpasswords`
+
+![victim123](https://github.com/user-attachments/assets/cd7ae08d-8dbf-49d2-bf6d-b0ece30987cd)
+
+##### - Answer: `Victim:victim123`
 <br>
 
 #### Q21: After a while the attacker started to search for a confidential data. can you tell what was the first directory he looked at?

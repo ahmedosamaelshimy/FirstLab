@@ -484,10 +484,17 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ```
 ********
 ```
-- 
+- The Attacker Has dumped LSASS Proccess using `procdump.exe` using this command `C:\windows\temp\calc.exe -accepteula -ma 652 C:\Windows\Temp\logct2.dmp`
+- Now, He is going to download `C:\Windows\Temp\logct2.dmp`
+
+![Download Procdump](https://github.com/user-attachments/assets/647e2156-eb86-414c-a8dd-f2b2eaa7172f)
+
+![222](https://github.com/user-attachments/assets/6ea297c3-5cd9-4d8b-baa6-35d83ed76b24)
+
 
 ##### - Answer: `54998530`
 
+<br>
 
 #### Q19: What command did the cover his tracks?
 ```
@@ -500,25 +507,25 @@ Victim:victim123
 ******:*********
 ```
 
-#### Q22: After a while the attacker started to search for a confidential data. can you tell what was the first directory he looked at?
+#### Q21: After a while the attacker started to search for a confidential data. can you tell what was the first directory he looked at?
 ```
 C:\Users\Victim\Pictures
 *:\*****\******\********
 
 ```
 
-#### Q23: What Did he try to steal? (filename)
+#### Q22: What Did he try to steal? (filename)
 ```
 Employees.xls
 *********.***
 ```
 
-#### Q25: The fun is not over yet. he decided to download another file to the victim machine. what is the name of that file at the server?
+#### Q23: The fun is not over yet. he decided to download another file to the victim machine. what is the name of that file at the server?
 ```
 file.exe
 ****.***
 ```
-#### Q26: Then he checked for a service status. What was it?
+#### Q24: Then he checked for a service status. What was it?
 ```
 TermService
 ***********

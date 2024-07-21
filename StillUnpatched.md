@@ -136,41 +136,33 @@ The HR manager, faced a critical security breach when his laptop became the entr
 
 #### Q21: After a while the attacker started to search for a confidential data. can you tell what was the first directory he looked at?
 ```
-C:\Users\Victim\Pictures
 *:\*****\******\********
 
 ```
 
 #### Q22: What Did he try to steal? (filename)
 ```
-Employees.xls
 *********.***
 ```
 
-#### Q25: The fun is not over yet. he decided to download another file to the victim machine. what is the name of that file at the server?
+#### Q23: The fun is not over yet. he decided to download another file to the victim machine. what is the name of that file at the server?
 ```
-file.exe
 ****.***
 ```
-#### Q26: Then he checked for a service status. What was it?
+#### Q24: Then he checked for a service status. What was it?
 ```
-TermService
 ***********
 ```
 
-#### Q27: After That he was hungry for more evil. He needed to ensure that they can remotely access the system. How can he access the system Remotely, what protocol does he need?
+#### Q25: After That he was hungry for more evil. He needed to ensure that they can remotely access the system. How can he access the system Remotely, what protocol does he need?
 ```
-RDP
 ***
 ```
 
-#### Q27: What Registery Value Did he change? (path included)
+#### Q26: What Registery Value Did he change to allow RDP? (path included)
 ```
-HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
 ****\******\*****************\*******\******** ******\******************
 ```
-> [!TIP]
-> evtx
 
 #### Q28: There is a .bat file was created. Where is it? (Absolute Path including the filename)
 ```
@@ -570,7 +562,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 <br>
 
-#### Q27: After That he was hungry for more evil. He needed to ensure that they can remotely access the system. How can he access the system Remotely, what protocol does he need?
+#### Q25: After That he was hungry for more evil. He needed to ensure that they can remotely access the system. How can he access the system Remotely, what protocol does he need?
 ```
 ***
 ```
@@ -579,23 +571,24 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 <br>
 
 
-#### Q27: What Registery Value Did he change? (path included)
+#### Q26: What Registery Value Did he change to allow RDP? (path included)
 ```
 ****\******\*****************\*******\******** ******\******************
 ```
-> [!TIP]
-> evtx
+
 - There is an base64 encoded command let's decode it
 
 ![image](https://github.com/user-attachments/assets/8800d647-cd2a-4879-954f-144f2ce0c3be)
 
 ![image](https://github.com/user-attachments/assets/879ed362-315b-461e-aec6-49bb4033dbe9)
 
-- Looks Like the Attacker is Enabling RDP.
-
+- Looks Like the Attacker is Enabling RDP for enabling remote access.
+  
 ##### - Answer: `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\fDenyTSConnections`
 
-#### Q28: There is a .bat file was created. Where is it? (Absolute Path including the filename)
+<br>
+
+#### Q27: There is a .bat file was created. Where is it? (Absolute Path including the filename)
 ```
 C:\Users\Victim\Documents\FXS.bat
 ```

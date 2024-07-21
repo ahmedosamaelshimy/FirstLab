@@ -12,10 +12,6 @@
     -  Wireshark
 - Attacker Machine: Kali Linux
 - Server: Windows 10
-## Planning
-- We will be dividing our lab to multiple parts
-    - Part 1: Initial Access & Credentials Dumping
-    - 
 
 ## Let's Go
 ### - Part 1:

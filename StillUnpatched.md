@@ -88,25 +88,21 @@ The HR manager, faced a critical security breach when his laptop became the entr
 
 #### Q12: What is the proccess that the attacker tried to dump?
 ```
-LSASS
 *****
 ```
 
 #### Q13: What dll file did the attacker use to apply the dump?
 ```
-comsvcs.dll
 *******.***
 ```
 
 #### Q14: The attacker dumped the process and wrote the dumo to a certain file, and then he downloaded it. can you tell the size of that file? (in bytes)
 ```
-00000
 *****
 ```
 
 #### Q15: Did it Work? (yay, nay)
 ```
-nay
 ***
 ```
 > [!TIP]
@@ -114,20 +110,18 @@ nay
 
 #### Q16: The Attacker downloaded a file to the Victim's Machine can you tell from where did he download it? (<IP>:<PORT>)
 ```
-192.168.1.2:9000
+***.***.*.*:****
 ```
 
 #### Q17: This file seems to be a calculator!!. hmm...? I think it's not a calculator. what is it? 
 ```
-procdump.exe
 ********.***
 ```
 > [!TIP]
 > Invistigate the real filename
 
-#### Q18: Another file has been downloaded from the system. What Was its Size? (in bytes)
+#### Q18: Another file has been downloaded from the Victim to the attacker. What Was its Size? (in bytes)
 ```
-54998530
 ********
 ```
 #### Q19: What command did the cover his tracks?
@@ -468,17 +462,33 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ```
 > [!TIP]
 > Invistigate the real filename
-- 
+- There is Two Ways to Answer this question. i will use a the first way in this question, and there is a similar one coming soon.
+- fiter: `http and (ip.addr==192.168.20.134 or ip.addr==192.168.1.2)`
+- Extract the File from the pcap to calc.exe
+![image](https://github.com/user-attachments/assets/b52b35c9-f05d-4ea0-b5e5-52233afe107a)
+
+- Media Type -> Right Click -> Export Packet Bytes -> calc.exe -> save
+![image](https://github.com/user-attachments/assets/9ae68542-123a-4c36-8552-7fc9846c35f2)
+
+![image](https://github.com/user-attachments/assets/96486c64-0981-4afb-a17f-c901ce98d01e)
+
+- See File Details -> Original Filename
+
+![image](https://github.com/user-attachments/assets/b81b7416-a0a1-4fdc-ad5d-c4e468a70e3e)
 
 ##### - Answer: `procdump.exe`
 
 <br>
 
-#### Q18: Another file has been downloaded from the system. What Was its Size? (in bytes)
+#### Q18: Another file has been downloaded from the Victim to the attacker. What Was its Size? (in bytes)
 ```
-54998530
 ********
 ```
+- 
+
+##### - Answer: `54998530`
+
+
 #### Q19: What command did the cover his tracks?
 ```
 Remove-Item -Path "C:\Windows\Temp\logct2.dmp", "C:\Windows\Temp\logctl.zip"

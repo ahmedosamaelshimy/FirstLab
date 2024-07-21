@@ -6,7 +6,7 @@
 `Easy`
 
 #### Tags:
-`sysmon` `wireshark` `mimikatz` `T1003` `T1012` `T1572 ` `T1505.003` `T1021.001` `T1112`
+`sysmon` `wireshark` `cyberchef` `mimikatz` `T1003` `T1012` `T1572 ` `T1505.003` `T1021.001` `T1112`
 
 
 #### Instructions:
@@ -19,6 +19,7 @@ The HR manager, faced a critical security breach when his laptop became the entr
 #### Tools
 - Wireshark
 - Event Viewer or LogViewPlus
+- CyberChef
 - mimikatz
 
 <hr>
@@ -376,60 +377,108 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 <br>
 
-#### Q10: What is the Authentication Method/Protocol did the Threat Actor check for?
+#### Q9: What is the Authentication Method/Protocol did the Threat Actor check for?
 ```
 *******
 ```
+- You can find a reg query command.
 
+![image](https://github.com/user-attachments/assets/8444ba74-c662-4d28-ad28-6f18b2570c9d)
+
+![image](https://github.com/user-attachments/assets/f86e36ea-d17f-4663-9351-10a970cc1b37)
+
+- `reg query HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential` Checks the registry to see if the `WDigest` authentication setting is configured to use UseLogonCredential.
 
 ##### - Answer: `WDigest`
 
 <br>
 
-#### Q11: The Attacker Modified a registery value write the full registiry path including this value
+#### Q10: The Attacker Modified a registery value write the full registiry path including this value
 ```
-HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\UseLogonCredential
 ****\******\*****************\*******\*****************\*******\******************
 ```
+- Almost 99% of attacker's attemps is captured in the 1.pcap file
+![image](https://github.com/user-attachments/assets/aa6f4ed9-3431-4d6f-ad76-aa3d308accc6)
 
-#### Q12: When this method is enabled. In what format are passwords stored in memory?
+- `Set-ItemProperty -Force -Path  'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest' -Name  'UseLogonCredential' -Value '1'` so basicallay he enabled the UserLogonCredential in WDigest now we got a Plaintext passwords in memory for the WDigest authentication protocol.
+- We Can also use sysmon evtx Evemt ID 13 
+
+![image](https://github.com/user-attachments/assets/743cdc82-6e70-44f9-be03-7bee98be0e44)
+
+
+##### - Answer:  `HKLM\System\CurrentControlSet\Control\SecurityProviders\WDigest\UseLogonCredential`
+
+<br>
+
+#### Q11: When this method is enabled. In what format are passwords stored in memory?
 ```
-plaintext
 *********
 ```
 
-#### Q13: What is the proccess that the attacker tried to dump?
+##### Answer: plaintext
+
+<br>
+
+#### Q12: What is the proccess that the attacker tried to dump?
 ```
-LSASS
 *****
 ```
+- Keep Digging with the HTTP Request and The Commands
+- you will see `C:\Windows\System32\rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump, 652 C:\Windows\Temp\logctl.zip full`
+- the attacker is trying to dumo a process with PID of `652`
+- We All know that WDigest Enabled = LSASS Dump
+- But Let's Walk with this, Remember the `tasklist` command in the enumuration?
 
-#### Q14: What dll file did the attacker use to apply the dump?
+![image](https://github.com/user-attachments/assets/055571f7-0af7-4458-ae1f-411d3b802f1f)
+
+##### - Answer: LSASS
+
+<br>
+
+#### Q13: What dll file did the attacker use to apply the dump?
 ```
-comsvcs.dll
 *******.***
 ```
+- `C:\Windows\System32\rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump, 652 C:\Windows\Temp\logctl.zip full`
+- there should be `logctl.zip` file written now to `C:\Windows\Temp\logctl.zip`
 
-#### Q15: The attacker dumped the process and wrote the dumo to a certain file, and then he downloaded it. can you tell the size of that file? (in bytes)
+##### - Answer: comsvcs.dll
+
+<br>
+
+#### Q14: The attacker dumped the process and wrote the dumo to a certain file, and then he downloaded it. can you tell the size of that file? (in bytes)
 ```
-00000
 *****
 ```
+- The Attacker now downloaded this file using this request `GET /custom/login/wbsh.jsp?file=C:\Windows\Temp\logctl.zip&action=download`
 
-#### Q16: Did it Work? (yay, nay)
+![image](https://github.com/user-attachments/assets/4551e387-329a-43c7-9ba6-8aec6aabeab5)
+
+- now a file transfer should occur right? let's look at the response
+- Response:- Content-Length: 0, which means the file is empty and equal to 0 bytes.
+![image](https://github.com/user-attachments/assets/e97ebd43-0e23-42a0-9610-47a061d12871)
+
+##### - Answer: `00000`
+
+<br>
+
+#### Q15: Did it Work? (yay, nay)
 ```
-nay
 ***
 ```
 > [!TIP]
 > Based on the Size
+- Empty File == No Dump == nay
 
-### Q17: The Attacker downloaded a file to the Victim's Machine can you tell from where did he download it? (<IP>:<PORT>)
+##### - Answer: `nay`
+
+
+#### Q16: The Attacker downloaded a file to the Victim's Machine can you tell from where did he download it? (<IP>:<PORT>)
 ```
 192.168.1.2:9000
 ```
 
-#### Q18: This file seems to be a calculator!!. hmm...? I think it's not a calculator. what is it? 
+#### Q17: This file seems to be a calculator!!. hmm...? I think it's not a calculator. what is it? 
 ```
 procdump.exe
 ********.***
@@ -437,17 +486,17 @@ procdump.exe
 > [!TIP]
 > Invistigate the real filename
 
-#### Q19: Another file has been downloaded from the system. What Was its Size? (in bytes)
+#### Q18: Another file has been downloaded from the system. What Was its Size? (in bytes)
 ```
 54998530
 ********
 ```
-#### Q20: What command did the cover his tracks?
+#### Q19: What command did the cover his tracks?
 ```
 Remove-Item -Path "C:\Windows\Temp\logct2.dmp", "C:\Windows\Temp\logctl.zip"
 ```
 
-#### Q21: In the lab files you will see a bin file which has the OS Credintials and also a password of ZIP file (the second part of the lab). What is USERNAME:PASSWORD? (DON'T CHEAT)
+#### Q20: In the lab files you will see a bin file which has the OS Credintials and also a password of ZIP file (the second part of the lab). What is USERNAME:PASSWORD? (DON'T CHEAT)
 ```
 Victim:victim123
 ******:*********

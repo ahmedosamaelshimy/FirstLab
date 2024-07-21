@@ -497,14 +497,27 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 #### Q19: What command did the cover his tracks?
 ```
-Remove-Item -Path "C:\Windows\Temp\logct2.dmp", "C:\Windows\Temp\logctl.zip"
+******-**** -**** "*:\*******\****\******.***", "*:\*******\****\******.***"
 ```
+
+![image](https://github.com/user-attachments/assets/84950e71-8e33-4858-a12f-c30d644a7380)
+
+> I'm Using CyberChef for URL Decoding
+
+##### - Answer: `Remove-Item -Path "C:\Windows\Temp\logct2.dmp", "C:\Windows\Temp\logctl.zip"`
+
+<br>
 
 #### Q20: In the lab files you will see a bin file which has the OS Credintials and also a password of ZIP file (the second part of the lab). What is USERNAME:PASSWORD? (DON'T CHEAT)
 ```
-Victim:victim123
 ******:*********
 ```
+- We Need to use [Mimikatz](https://github.com/ParrotSec/mimikatz) to get the Credentials
+![image](https://github.com/user-attachments/assets/b851d1ed-614f-4fa1-88e8-dc0362c96ee7)
+- open it, then `# sekurlsa::minidump logc2.bin` -> `sekurlsa::logonpasswords`
+- 
+
+<br>
 
 #### Q21: After a while the attacker started to search for a confidential data. can you tell what was the first directory he looked at?
 ```

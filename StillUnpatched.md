@@ -4,7 +4,7 @@
 #### Category:
 `Endpoint Forensics` `Network Forensics`
 
-# Difficulty:
+#### Difficulty:
 `Easy`
 
 #### Tags:
@@ -98,7 +98,7 @@ The HR manager, faced a critical security breach when his laptop became the entr
 *******.***
 ```
 
-#### Q14: The attacker dumped the process and wrote the dumo to a certain file, and then he downloaded it. can you tell the size of that file? (in bytes)
+#### Q14: The attacker dumped the process and wrote the dump to a certain file, and then he downloaded it. can you tell the size of that file? (in bytes)
 ```
 *****
 ```
@@ -385,7 +385,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ```
 - Keep Digging with the HTTP Request and The Commands
 - you will see `C:\Windows\System32\rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump, 652 C:\Windows\Temp\logctl.zip full`
-- the attacker is trying to dumo a process with PID of `652`
+- the attacker is trying to dump a process with PID of `652`
 - We All know that WDigest Enabled = LSASS Dump
 - But Let's Walk with this, Remember the `tasklist` command in the enumuration?
 
@@ -406,7 +406,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 
 <br>
 
-#### Q14: The attacker dumped the process and wrote the dumo to a certain file, and then he downloaded it. can you tell the size of that file? (in bytes)
+#### Q14: The attacker dumped the process and wrote the dump to a certain file, and then he downloaded it. can you tell the size of that file? (in bytes)
 ```
 *****
 ```
@@ -450,7 +450,7 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ```
 > [!TIP]
 > Invistigate the real filename
-- There is Two Ways to Answer this question. i will use a the first way in this question, and there is a similar one coming soon.
+- There are Two Ways to Answer this question. i will use a the first way in this question, and there is a similar one coming soon.
 - fiter: `http and (ip.addr==192.168.20.134 or ip.addr==192.168.1.2)`
 - Extract the File from the pcap to calc.exe
 ![image](https://github.com/user-attachments/assets/b52b35c9-f05d-4ea0-b5e5-52233afe107a)
@@ -622,7 +622,7 @@ Set-Content -Path $batchFilePath -Value $batchContent
 
 <br>
 
-#### Q29: Like you did notice this batch will be used in Establishing SSH Connection. What is the IP address of SSH Server and its Port? (<ip_addr>:<port>)
+#### Q29: Like you did notice this batch will be used for Establishing SSH Connection. What is the IP address of SSH Server and its Port? (<ip_addr>:<port>)
 ```
 ***.***.*.*:***
 ```

@@ -126,12 +126,11 @@ The HR manager, faced a critical security breach when his laptop became the entr
 ```
 #### Q19: What command did the cover his tracks?
 ```
-Remove-Item -Path "C:\Windows\Temp\logct2.dmp", "C:\Windows\Temp\logctl.zip"
+******-**** -**** "*:\*******\****\******.***", "*:\*******\****\******.***"
 ```
 
 #### Q20: In the lab files you will see a bin file which has the OS Credintials and also a password of ZIP file (the second part of the lab). What is USERNAME:PASSWORD? (DON'T CHEAT)
 ```
-Victim:victim123
 ******:*********
 ```
 

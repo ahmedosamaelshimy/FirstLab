@@ -613,6 +613,7 @@ Set-Content -Path $batchFilePath -Value $batchContent
 ```
 *****.***:********************************
 ```
+> Masquerading
 - Search for `ekern.exe` in event viewer and we got our answer, the real filename is Plink and md5=CC62BA67C1200202D1DA784EA0313408
 
 ![image](https://github.com/user-attachments/assets/bea969e9-598d-4f96-8e00-e4cf53bd1894)

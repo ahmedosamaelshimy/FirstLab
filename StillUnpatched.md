@@ -299,60 +299,92 @@ SSH-*.*-*.** *******:******** *** ****** (*******) *.**
 ```
 ************ *********** ****
 ```
-- We can look at the evtx file and find the answer or invistigate some packets, let's do both.
-- 1. pcap file: if looked at the response of `GET /favicon.ico` we can easily find the Answer in the HTML <title> tag. 
+- We can look at the evtx file and find the answer or invistigate some packets.
+- if looked at the response of `GET /favicon.ico` we can easily find the Answer in the HTML <title> tag. 
 
 ![image](https://github.com/user-attachments/assets/13525953-254f-421d-93bd-c3b61fa597c7)
 
 ![image](https://github.com/user-attachments/assets/ef068a20-e2ea-4e0e-a60a-dd7e6e9ffd93)
 
-- 2. evtx file: 
 
-#### - Answer  `ManageEngine ServiceDesk Plus`
+##### - Answer:  `ManageEngine ServiceDesk Plus`
 
 <br>
 
 #### Q5: The Exploit consists of 2 stages, in the first stage the attacker uploads the malicious file, and in the second stage it involved initiating instalation of Site24x7 and the installation is done by executing the malicious file that have been uploaded by the attacker. What Command Used in the installation?
 ```
-msiexec.exe /i Site24x7WindowsAgent.msi EDITA1=null /qn
 *******.*** /* ********************.*** ******=**** /**
 ```
 > [!TIP]
 > evtx time?
 
+- we can search for the `msiexec.exe` in the evtx using Event Viewer
+
+![image](https://github.com/user-attachments/assets/42638997-3d5b-4e1d-9c54-c2d543e35b88)
+
+- Looks like there is `C:\Program Files (x86)\ManageEngine\ServiceDesk\bin\msiexec.exe` file created by `C:\Program Files (x86)\ManageEngine\ServiceDesk\jre\bin\java.exe` 
+- Keep Digging for a Command where the `msiexec.exe` file have been used.
+- In the Event After the previous one, you will find `CommandLine: msiexec.exe /i Site24x7WindowsAgent.msi EDITA1=null /qn `, which initiate the installation of Zoho’s Site24x7 performance monitoring tool.
+- 
+##### - Answer: `msiexec.exe /i Site24x7WindowsAgent.msi EDITA1=null /qn`
+
+<br>
+
 #### Q6: When the malicious file is executed another file is written can you tell where it is located? (Absolute Path including the filename) 
 ```
-C:\Program Files (x86)\ManageEngine\ServiceDesk\custom\login\wbsh.jsp
 *:\******* ***** (***)\************\***********\******\*****\****.***
 ```
 > [!TIP]
 > 1. evtx + pcap...
 > 2. maybe http?
 
+- We got two hints, we already know the path of the ManageEngine ServiceDesk `C:\Program Files (x86)\ManageEngine\ServiceDesk\`.
+- Let's take a look at the pcap file. `http` filter still on.
+- If follower the HTTP Requests we will find a `GET /custom/login/wbsh.jsp`. so add this to the full path we have and we got our answer. filter: `http and ip.addr==192.168.20.134`
+
+![image](https://github.com/user-attachments/assets/299fdd15-6c6d-4b08-b052-72d894382fa9)
+
+![image](https://github.com/user-attachments/assets/f02fe877-a222-4588-a488-0ea7a524c4cf)
+
+##### - Answer: C:\Program Files (x86)\ManageEngine\ServiceDesk\custom\login\wbsh.jsp`
+
+<br>
+
 #### Q7: What is the type of the attack that can happen using this file?
 ```
-Web Shell
 *** *****
 ```
+- JSP files are used for creating dynamic web content. They embed Java code within HTML to generate dynamic content on the server before sending it to the client's browser.
+- We Can abuse JSP files to reach a `Web Shell`. [MORE FUN](https://www.microsoft.com/en-us/security/blog/2021/02/11/web-shell-attacks-continue-to-rise/)
 
-#### Q8: Can you tell what is the path of the exe file used to execute this file?
-```
-C:\Program Files (x86)\ManageEngine\ServiceDesk\jre\bin\java.exe
-*:\******* ***** (***)\************\***********\***\***\****.***
+##### - Answer: `Web Shell`
 
-```
+<br>
 
-#### Q9: Now the attacker reached to the initial access, can you tell what privilege does he has? (What User?)
+#### Q8: Now the attacker reached to the initial access, can you tell what privilege does he has? (What User?)
 ```
-NT AUTHORITY\SYSTEM
 ** *********\******
 ```
+- Now we know that the attacker got a Web Shell, So he will probably do some enumurations.
+![Enum](https://github.com/user-attachments/assets/cab66110-798c-4f84-83b8-0d504850d3c8)
+- `whoami`, `ipconfig /all`, `systeminfo`, `arp -a`, `tasklist`
+- We can answer the question by looking at the response to GET custom/login/wbsh.jsp?cmd=whoami&action=exec
+
+![image](https://github.com/user-attachments/assets/d4434a28-0a97-47e7-85ba-860b70e2f69f)
+
+##### - Answer: `NT AUTHORITY\SYSTEM`
+
+<br>
 
 #### Q10: What is the Authentication Method/Protocol did the Threat Actor check for?
 ```
-WDigest
 *******
 ```
+
+
+##### - Answer: `WDigest`
+
+<br>
 
 #### Q11: The Attacker Modified a registery value write the full registiry path including this value
 ```
